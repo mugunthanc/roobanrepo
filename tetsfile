@@ -31,4 +31,14 @@ spec:
       name: nodeport-svc
       #ClutserIP
       clusterip: 10.20.45.68
-
+#ClutserIP creation
+apiVersion: v1
+kind: Service
+spec:
+    type: nodport
+    ports:
+    - port: 8091
+      nodePort: 30002
+      name: nodeport-svc
+      #ClutserIP
+      clusterip: 10.20.45.69
