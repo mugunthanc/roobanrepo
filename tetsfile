@@ -1,0 +1,34 @@
+#Service with out Selector
+apiVersion: v1
+kind: Service
+metadata:
+    name: test_service
+spec:
+    ports:
+    - port: 8080
+    targetPort: 31999
+---
+#service config file with selector
+apiVersion: v1
+kind: Service
+metadata:
+    name: test_service1
+spec:
+    selector:
+        application: "citybankapp"
+    ports:
+    - port: 8090
+    targetPort: 30001
+---
+#ClutserIP creation
+apiVersion: v1
+kind: Service
+spec:
+    type: nodport
+    ports: 
+    - port: 8091
+      nodePort: 30002
+      name: nodeport-svc
+      #ClutserIP
+      clusterip: 10.20.45.68
+
